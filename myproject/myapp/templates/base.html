@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      *{
+       background-color:DodgerBlue;
+      }
+     </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{% url 'myapp:home' %}">Home</a>
+        <a href="{% url 'myapp:signup' %}">Sign up</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'myapp:logout' %}">Log out</a>
+        {% else %}
+          <a href="{% url 'myapp:login' %}">Log in</a>
+        {% endif %}
+      </nav>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

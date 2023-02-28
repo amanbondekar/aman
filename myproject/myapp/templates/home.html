@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+{% block content %}
+  <h2>Welcome!</h2>
+  {% if user.is_authenticated %}
+    <p>You are logged in as {{ user.username }}.</p>
+  {% else %}
+    <p>Please log in or sign up.</p>
+  {% endif %}
+{% endblock %}
